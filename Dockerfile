@@ -14,6 +14,9 @@ COPY verify-codex-binary.mjs /opt/verify-codex-binary.mjs
 
 RUN node /opt/verify-codex-binary.mjs
 
+ENV CODEX_HOME=/home/workspace/.codex \
+    GH_CONFIG_DIR=/home/workspace/.config/gh
+
 WORKDIR /home/workspace
 
 EXPOSE 80
