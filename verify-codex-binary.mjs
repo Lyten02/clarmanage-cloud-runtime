@@ -2,11 +2,9 @@ import { existsSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 
-const require = createRequire(import.meta.url);
 const clarmanageRoot = '/usr/local/lib/node_modules/@armanage/clarmanage';
-const sdkPath = require.resolve('@openai/codex-sdk', {
-  paths: [clarmanageRoot],
-});
+const sdkPath = join(clarmanageRoot, 'node_modules/@openai/codex-sdk/dist/index.js');
+if (!existsSync(sdkPath)) throw new Error('Clarmanage Codex SDK is missing');
 const sdkRequire = createRequire(sdkPath);
 const cliPath = sdkRequire.resolve('@openai/codex/package.json');
 const cliRequire = createRequire(cliPath);
