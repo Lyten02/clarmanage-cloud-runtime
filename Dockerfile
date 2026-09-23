@@ -18,7 +18,8 @@ COPY verify-codex-binary.mjs /opt/verify-codex-binary.mjs
 RUN node /opt/verify-codex-binary.mjs
 
 ENV CODEX_HOME=/home/workspace/.codex \
-    GH_CONFIG_DIR=/home/workspace/.config/gh
+    GH_CONFIG_DIR=/home/workspace/.config/gh \
+    GIT_CONFIG_GLOBAL=/home/workspace/.gitconfig
 
 WORKDIR /home/workspace
 
