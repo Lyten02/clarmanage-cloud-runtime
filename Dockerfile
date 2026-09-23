@@ -7,6 +7,10 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && npm install --global @armanage/clarmanage@0.1.50
 
+COPY health-server.mjs /opt/health-server.mjs
+
 WORKDIR /home/workspace
 
-CMD ["sleep", "infinity"]
+EXPOSE 80
+
+CMD ["node", "/opt/health-server.mjs"]
