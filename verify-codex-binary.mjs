@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path';
 
 const require = createRequire(import.meta.url);
 const clarmanageRoot = '/usr/local/lib/node_modules/@armanage/clarmanage';
-const sdkPath = require.resolve('@openai/codex-sdk/package.json', {
+const sdkPath = require.resolve('@openai/codex-sdk', {
   paths: [clarmanageRoot],
 });
 const sdkRequire = createRequire(sdkPath);
