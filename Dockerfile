@@ -7,7 +7,10 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && npm install --global --include=optional \
       @armanage/clarmanage@0.1.50 \
-      @openai/codex@0.156.1
+      @openai/codex@0.156.1 \
+    && mkdir -p /opt/clarmanage/bin \
+    && ln -s /usr/local/bin/clarmanage /opt/clarmanage/bin/clarmanage \
+    && test -x /opt/clarmanage/bin/clarmanage
 
 COPY health-server.mjs /opt/health-server.mjs
 COPY verify-codex-binary.mjs /opt/verify-codex-binary.mjs
